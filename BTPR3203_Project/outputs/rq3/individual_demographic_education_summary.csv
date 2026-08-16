@@ -1,0 +1,13 @@
+qualification_tier,Sex,age_group,total_graduates,underemployed_graduates,underemployment_rate_pct
+Bachelor's Degree,Female,23-26,217,66,30.41
+Bachelor's Degree,Female,27-31,493,118,23.94
+Bachelor's Degree,Female,32-44,709,163,22.99
+Bachelor's Degree,Male,23-26,144,30,20.83
+Bachelor's Degree,Male,27-31,306,62,20.26
+Bachelor's Degree,Male,32-44,552,82,14.86
+Diploma,Female,23-26,258,97,37.6
+Diploma,Female,27-31,415,135,32.53
+Diploma,Female,32-44,643,230,35.77
+Diploma,Male,23-26,164,81,49.39
+Diploma,Male,27-31,254,102,40.16
+Diploma,Male,32-44,476,200,42.02
