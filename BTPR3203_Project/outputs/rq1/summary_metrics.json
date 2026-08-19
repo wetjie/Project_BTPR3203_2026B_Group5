@@ -1,0 +1,14 @@
+{
+  "project": "Skill-Related Underemployment - Tertiary Educated Workers, Malaysia",
+  "latest_quarter": "2025-07-01",
+  "overall_persons_000": 1961.5,
+  "overall_rate_pct": 35.5,
+  "peak_persons_000": 1961.5,
+  "peak_persons_date": "2025-07-01",
+  "peak_rate_pct": 37.9,
+  "peak_rate_date": "2021-01-01",
+  "cagr_pct_per_year": 6.13,
+  "correlation_number_vs_rate": 0.905,
+  "data_source": "DOSM Labour Force Survey - lfs_qtr_sru_age & lfs_qtr_sru_sex",
+  "notes": "Skill-related underemployment = tertiary-educated persons in semi-skilled or low-skilled occupations (MASCO)."
+}
