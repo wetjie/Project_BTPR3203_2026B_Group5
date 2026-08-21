@@ -1,50 +1,38 @@
 # Project_BTPR3203_2026B_Group5
 
-# BTPR3203 Python for Data Science Project
+# Analysing Skill-Related Underemployment Among Tertiary-Educated Workers in Malaysia
 
-## Project Title
-
-**Analysing Skill-Related Underemployment Among Tertiary-Educated Workers in Malaysia**
-
----
-
-## 1. Problem Statement
-
-Malaysia's low unemployment rate does not necessarily mean that graduates are obtaining jobs that fully utilise their skills and education. Graduates may be employed while working in occupations that do not fully utilise their skill level. Therefore, employment status alone may not provide a complete picture of graduate employment outcomes.
-
-Graduate underemployment may also differ across fields of study, regions, demographic groups, and educational qualification levels. This project therefore examines graduate underemployment in Malaysia from several perspectives using official and respondent-level datasets.
+**Course:** BTPR3203 Python for Data Science  
+**Semester:** B 2026  
+**Project Type:** Group Project
 
 ---
 
-## 2. News Article Justification
+## 1. Project Overview
 
-The project is motivated by the selected news article:
-
-**Hadi Azmi and Muzliza Mustafa (2026). _Malaysia's low unemployment masks deeper crisis of underemployed graduates_. Asianews.Network.**
-
-The article highlights the gap between Malaysia's low unemployment rate and the continued presence of skill-related underemployment among tertiary-educated workers. This provides the real-world context for examining graduate employment quality rather than focusing only on whether graduates are employed.
+This project analyses skill-related underemployment among tertiary-educated workers in Malaysia using Python and official Malaysian datasets. The project investigates graduate underemployment through three research questions, with each research question following a complete analytical pipeline consisting of data preparation, exploratory data analysis (EDA), feature engineering, quantitative analysis, visualisation, interpretation, and reporting.
 
 ---
 
-## 3. Research Questions
+## 2. Research Questions
 
-### RQ1
+### RQ1 — Overall Trend
 
-**How many graduates in Malaysia are currently working in jobs that don't match their qualification level, and how has this number changed over time?**
+**Research Question:** What is the present state of graduates in Malaysia who are employed in jobs that are not aligned with their qualifications, and how has this situation changed over the years?
 
-RQ1 examines the scale and temporal pattern of skill-related underemployment using quarterly DOSM data.
+This analysis examines the national trend of skill-related underemployment among tertiary-educated workers, including changes over time, age-group patterns, sex patterns, and an illustrative long-term projection.
 
-### RQ2
+### RQ2 — Field and Regional Comparison
 
-**Which fields of study (or regions/states) have the highest rates of graduate underemployment in Malaysia?**
+**Research Question:** Which fields of study (or regions/states) have the highest rates of graduate underemployment in Malaysia?
 
-RQ2 examines differences in current occupation-based underemployment across fields of study and Malaysian states using the KRI GCTS dataset.
+This analysis compares graduate underemployment across fields of study and Malaysian states or regions, and examines field–region patterns using descriptive analysis and visualisation.
 
-### RQ3
+### RQ3 — Demographic and Educational Factors
 
-**What demographic and educational factors are associated with graduate underemployment in Malaysia?**
+**Research Question:** What demographic and educational factors are associated with graduate underemployment in Malaysia?
 
-RQ3 examines the association between underemployment and:
+This analysis investigates graduate underemployment based on:
 
 - Sex
 - Age group
@@ -52,118 +40,208 @@ RQ3 examines the association between underemployment and:
 
 ---
 
-## 4. Datasets
+## 3. Datasets
 
-### RQ1 — Department of Statistics Malaysia (DOSM)
+### RQ1 Dataset
 
-RQ1 uses official quarterly skill-related underemployment datasets from the Department of Statistics Malaysia:
+| Item | Description |
+|------|-------------|
+| **Source** | Department of Statistics Malaysia (DOSM) |
+| **Dataset** | Labour Force Survey – Skill-Related Underemployment |
+| **Coverage** | Quarterly data from **2017 Q1 to 2025 Q3** |
+| **Measures** | Number of underemployed tertiary-educated workers ('000) and underemployment rate (%) |
 
-- `lfs_qtr_sru_age`
-- `lfs_qtr_sru_sex`
+### RQ2 Dataset
 
-These datasets provide skill-related underemployment information by age group and sex over time.
+| Item | Description |
+|------|-------------|
+| **Source** | Khazanah Research Institute (KRI) |
+| **Dataset** | Graduate Career Transition Survey (GCTS) |
+| **Coverage** | **8,026 respondents** and **221 variables** |
+| **Graduate Cohorts** | Approximately **2010** and **2018** |
 
-### RQ2 and RQ3 — Khazanah Research Institute (KRI)
+### RQ3 Dataset
 
-RQ2 and RQ3 use the **Graduate Career Transition Survey (GCTS)** dataset provided by the Khazanah Research Institute.
+| Item | Description |
+|------|-------------|
+| **Source** | Khazanah Research Institute (KRI) |
+| **Dataset** | Graduate Career Transition Survey (GCTS) |
+| **Coverage** | **8,026 respondents** and **221 variables** |
+| **Graduate Cohorts** | Approximately **2010** and **2018** |
+| **Final Analytical Sample** | **4,631 working graduates** |
 
-The GCTS dataset contains respondent-level information including:
+**Key Variables**
 
-- Demographic characteristics
-- Educational qualifications
-- Employment status
-- Current occupation
-- Field of study
-- Place of residence
+- `Sex`
+- `age`
+- `max_educert`
+- `currentempstatus`
+- `occupation_cj`
 
 ---
 
-## 5. Analytical Approach
-
-The project follows a common data science pipeline:
+## 4. Project Structure
 
 ```text
-Data Loading
-      ↓
-Data Cleaning
-      ↓
-Exploratory Data Analysis
-      ↓
-Feature Engineering
-      ↓
-Quantitative Analysis
-      ↓
-Visualisation
-      ↓
-Output Generation
-````
+project/
+├── data/
+│   ├── KRI_GCTS_Dataset.csv
+│   └── DOSM source/raw data files
+│
+├── figures/
+│   ├── rq1/
+│   ├── rq2/
+│   └── rq3/
+│
+├── outputs/
+│   ├── rq1/
+│   ├── rq2/
+│   └── rq3/
+│
+├── src/
+│   ├── rq1.py
+│   ├── rq2.py
+│   └── rq3.py
+│
+└── README.md
+```
 
-### RQ1
-
-RQ1 analyses:
-
-* Overall underemployment trends
-* Age-group differences
-* Sex differences
-* Year-on-year changes
-* Peak values
-* Correlation between underemployment numbers and rates
-* Compound annual growth
-
-Three visualisations are generated for the overall trend, age groups, and sex.
-
-### RQ2
-
-RQ2 uses current occupation to operationalise skill-related underemployment.
-
-The analysis examines:
-
-* Underemployment by field of study
-* Underemployment by Malaysian state
-* Field-of-study and state combinations
-
-Three visualisations are generated, including field and state comparisons and a heatmap.
-
-### RQ3
-
-RQ3 operationalises skill-related underemployment using current occupation.
-
-The analysis includes:
-
-* Overall underemployment rate
-* Qualification-level comparison
-* Chi-square test for qualification
-* Chi-square test for age group
-* Chi-square test for sex
-* Cramér's V effect size
-* Multi-way descriptive analysis
-
-Two visualisations are generated for age × qualification and sex × qualification.
+The project is organised by research question, with separate folders for datasets, figures, outputs, and Python source files.
 
 ---
 
-## 6. Key Analytical Definitions
+## 5. Analytical Pipeline
 
-For the KRI GCTS analyses, current occupation is used to operationalise skill-related underemployment.
+RQ1
+```text
+Dataset
+   ↓
+Data Loading and Preparation
+   ↓
+Exploratory Data Analysis (EDA)
+   ↓
+Feature Engineering
+   ↓
+Quantitative Analysis
+   ↓
+Machine Learning
+   ↓
+Visualisation and Reporting
+```
 
-The following occupational groups are treated as high-skilled:
+RQ2
+```text
+Dataset
+   ↓
+Data Loading and Preparation
+   ↓
+Exploratory Data Analysis (EDA)
+   ↓
+Feature Engineering
+   ↓
+Quantitative Analysis
+   ↓
+Methodological Alternatives
+   ↓
+Visualisation and Reporting
+```
 
-* Managers
-* Professionals
-* Technicians and Associate Professionals
+RQ3
+```text
+Dataset
+   ↓
+Data Loading and Preparation
+   ↓
+Exploratory Data Analysis (EDA)
+   ↓
+Feature Engineering
+   ↓
+Quantitative Analysis
+   ↓
+Methodological Alternatives
+   ↓
+Visualisation and Reporting
+```
 
-Respondents working outside these high-skilled occupational groups are classified as the skill-related underemployment proxy.
+---
 
-For RQ3, respondents are further grouped into:
+## 6. Methodology
 
-* Diploma
-* Bachelor's Degree
+### RQ1 — Overall Trend Analysis
 
-Age is grouped into:
+**Objective**
 
-* 23–26
-* 27–31
-* 32–44
+Analyse the national trend of skill-related underemployment among tertiary-educated workers in Malaysia.
+
+**Analytical Workflow**
+
+1. Load the DOSM quarterly underemployment datasets using Pandas.
+2. Clean missing values and convert dates into datetime format.
+3. Separate person-count and percentage-rate series.
+4. Create year, quarter, year-quarter, percentage change, percentage-point change, and age-share features.
+5. Perform trend analysis, age-group analysis, sex comparison, correlation analysis, peak-value analysis, and CAGR analysis.
+6. Generate trend and comparison visualisations.
+7. Export processed CSV files, JSON summary metrics, and trend tables.
+
+**Outputs**
+
+- Overall trend chart.
+- Illustrative projection chart.
+- Age-group comparison chart.
+- Sex comparison chart.
+- CSV, JSON, and trend summary outputs.
+
+> The projection is an **illustrative simple linear trend** and is not an official forecast.
+
+---
+
+### RQ2 — Field and Regional Analysis
+
+**Objective**
+
+Compare graduate underemployment across fields of study and Malaysian states or regions.
+
+**Analytical Workflow**
+
+1. Load the GCTS respondent-level dataset using Pandas.
+2. Remove missing and invalid records, including coded values such as `99` and `99.0`.
+3. Create a binary skill-related underemployment indicator based on occupational skill categories.
+4. Group graduates by field of study and state or region.
+5. Perform descriptive comparisons and field–region cross-tabulation.
+6. Generate comparison bar charts and a heatmap.
+7. Export processed analytical tables for reporting.
+
+**Outputs**
+
+- Field-of-study comparison chart.
+- State or regional comparison chart.
+- Field–region heatmap.
+- CSV summary tables.
+
+---
+
+### RQ3 — Demographic and Educational Analysis
+
+**Objective**
+
+Examine demographic and educational factors associated with graduate skill-related underemployment.
+
+**Analytical Workflow**
+
+1. Load the GCTS dataset and retain only working graduates.
+2. Remove respondents with missing or invalid occupation records.
+3. Restrict the analysis to Diploma/Certificate and Bachelor's Degree graduates.
+4. Create three derived variables: `is_underemployed`, `qualification_tier`, and `age_group`.
+5. Calculate the overall underemployment rate and compare qualification groups.
+6. Perform Chi-square tests for qualification, age group, and sex, and calculate Cramér's V.
+7. Generate demographic comparison visualisations and export processed analytical outputs.
+
+**Outputs**
+
+- Age × Qualification bar chart.
+- Sex × Qualification bar chart.
+- Processed analytical dataset.
+- Summary CSV tables.
 
 ---
 
@@ -171,171 +249,140 @@ Age is grouped into:
 
 ### RQ1
 
-The analysis examines how the number and rate of skill-related underemployment among tertiary-educated workers changed over time and how patterns differ by age and sex.
+- Skill-related underemployment increased substantially over the study period.
+- The underemployment rate peaked during the COVID-19 period before moderating.
+- Younger age groups generally recorded higher underemployment rates than older groups.
 
 ### RQ2
 
-The analysis identifies differences in current occupation-based underemployment across fields of study and Malaysian states.
+- General Programmes, Arts and Humanities, and Agriculture-related fields recorded higher observed underemployment rates.
+- Geographic differences were observed across Malaysian states.
+- Several field–region combinations showed particularly high descriptive underemployment rates.
 
 ### RQ3
 
-Qualification level showed the strongest association with skill-related underemployment. Age group showed a statistically significant but very weak association, while sex was not significantly associated with underemployment.
-
-The findings are interpreted as associations rather than causal effects.
-
----
-
-## 8. Project Structure
-
-```text
-BTPR3203_Project/
-│
-├── main.py
-│
-├── src/
-│   ├── __init__.py
-│   ├── rq1_analysis.py
-│   ├── rq2_analysis.py
-│   └── rq3_analysis.py
-│
-├── data/
-│   ├── KRI_GCTS_Dataset.csv
-│   ├── lfs_qtr_sru_age_raw.csv
-│   └── lfs_qtr_sru_sex_raw.csv
-│
-├── outputs/
-│   ├── rq1/
-│   ├── rq2/
-│   └── rq3/
-│
-├── figures/
-│   ├── rq1/
-│   ├── rq2/
-│   └── rq3/
-│
-└── README.md
-```
+- Diploma graduates consistently recorded higher underemployment rates than Bachelor's Degree graduates across age groups and sex groups.
+- Qualification level showed the strongest association with underemployment.
+- Age group showed a statistically significant but weak association.
+- Sex was not significantly associated with underemployment.
 
 ---
 
-## 9. Python Libraries
+## 8. Visualisation Outputs
 
-The project uses:
+The project generates multiple visualisations for each research question.
 
-* **Pandas** — data loading, cleaning, transformation, and analysis
-* **NumPy** — numerical operations
-* **Matplotlib** — visualisation
-* **Seaborn** — statistical visualisation
-* **SciPy** — statistical testing
-* **Pathlib** — file and directory management
-* **JSON** — summary output
+### RQ1
+
+- Overall trend line chart.
+- Illustrative projection chart.
+- Age-group trend chart.
+- Sex comparison chart.
+
+### RQ2
+
+- Field-of-study comparison chart.
+- State or regional comparison chart.
+- Field–region heatmap.
+
+### RQ3
+
+- Underemployment by age group and qualification level.
+- Underemployment by sex and qualification level.
+
+Each visualisation supports the interpretation of the corresponding analytical findings presented in the report.
 
 ---
 
-## 10. Setup Instructions
+## 9. Output Files
 
-### Install Python
+The project exports processed datasets and summary outputs for reporting and reuse.
 
-Python 3.11 or later is recommended.
+### RQ1
 
-### Install required libraries
+- Processed CSV files.
+- JSON summary metrics.
+- Trend summary tables.
+
+### RQ2
+
+- Processed CSV files.
+- Field and regional summary tables.
+
+### RQ3
+
+- `processed_gcts_analytical_data.csv`
+- `individual_demographic_education_summary.csv`
+
+PNG figures for all research questions are saved in the `figures/` directory.
+
+---
+
+## 10. Python Libraries
+
+The project uses the following Python libraries.
+
+| Library | Purpose |
+|---------|---------|
+| **Pandas** | Data loading, cleaning, grouping, and aggregation. |
+| **NumPy** | Numerical calculations and feature creation. |
+| **Matplotlib** | Data visualisation and figure generation. |
+| **Seaborn** | Statistical visualisations. |
+| **SciPy** | Chi-square tests and Cramér's V calculations. |
+| **Pathlib / os** | File and directory management. |
+| **JSON** | Export summary metrics for RQ1. |
+
+---
+
+## 11. How to Run
+
+### Install Required Libraries
 
 ```bash
 pip install pandas numpy matplotlib seaborn scipy pyarrow
 ```
 
-### Dataset
+### Run Individual Research Question Scripts
 
-Place the KRI GCTS dataset in:
-
-```text
-data/KRI_GCTS_Dataset.csv
+```bash
+python rq1.py
+python rq2.py
+python rq3.py
 ```
 
-The DOSM datasets used in RQ1 are downloaded automatically when they are not already present in the `data` folder.
+Generated figures will be saved in the `figures/` directory, while processed datasets and summary outputs will be saved in the `outputs/` directory.
 
 ---
 
-## 11. How to Run the Project
+## 12. Interpretation and Limitations
 
-### Run the complete project
-
-From the project root directory:
-
-```bash
-python main.py
-```
-
-This runs:
-
-```text
-RQ1
- ↓
-RQ2
- ↓
-RQ3
-```
-
-### Run individual analyses
-
-```bash
-python src/rq1_analysis.py
-```
-
-```bash
-python src/rq2_analysis.py
-```
-
-```bash
-python src/rq3_analysis.py
-```
-
----
-
-## 12. Outputs
+The findings are interpreted as **observed patterns and statistical associations rather than causal effects**.
 
 ### RQ1
 
-```text
-outputs/rq1/
-figures/rq1/
-```
-
-Contains processed data, summary JSON, trend tables, and three visualisations.
+- Uses national DOSM aggregate data.
+- Projection is an illustrative linear trend rather than an official forecast.
 
 ### RQ2
 
-```text
-outputs/rq2/
-figures/rq2/
-```
-
-Contains field-level and state-level summaries, heatmap data, and three visualisations.
+- Uses respondent-level GCTS data to compare fields of study and regions.
+- Results describe observed differences across groups rather than causal relationships.
 
 ### RQ3
 
-```text
-outputs/rq3/
-figures/rq3/
-```
-
-Contains the processed analytical dataset, demographic and education summary, and two visualisations.
+- Uses occupation-based operational measures of skill-related underemployment.
+- Excludes Master's and Doctoral graduates from qualification-level comparisons.
+- Does not capture field-of-study mismatch or other forms of underemployment.
 
 ---
 
-## 13. Reproducibility
+## 13. References
 
-All major analytical procedures are implemented in Python source files. The project can be reproduced by running `main.py`, which executes the three research question modules sequentially.
+The project uses official Malaysian datasets and supporting literature, including:
 
-The project also stores processed outputs and generated figures for reporting and presentation purposes.
+- Department of Statistics Malaysia (DOSM) — Labour Force Survey skill-related underemployment datasets.
+- Khazanah Research Institute (KRI) — Graduate Career Transition Survey (GCTS).
+- Azmi, H., & Mustafa, M. (2026). *Malaysia's low unemployment masks deeper crisis of underemployed graduates.*
 
----
-
-## 14. Data Sources
-
-Department of Statistics Malaysia (DOSM).
-
-Khazanah Research Institute (KRI), **Graduate Career Transition Survey (GCTS)**.
-
-Hadi Azmi, H., & Mustafa, M. (2026). *Malaysia's low unemployment masks deeper crisis of underemployed graduates*. Asianews.Network.
+For complete APA references, refer to the final project report.
 
